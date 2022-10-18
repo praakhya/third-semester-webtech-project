@@ -12,6 +12,8 @@
   position: absolute;
   left: 2px;
   top: 18px;
+  z-index: 3;
+
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -51,8 +53,22 @@
   width: 100vw;
   top: 0px;
   padding: 10px;
+  position: fixed;
+  top:0px;
 }
 .homePic
 {
   width: 500px;
+}
+.nav{
+  background-color: black;
+  color: antiquewhite;
+  height: 100vh;
+  padding: 10px;
+  padding-top: 50px;
+}
+.login
+{
+  left: 50%;
+  top: 50%;
 }
