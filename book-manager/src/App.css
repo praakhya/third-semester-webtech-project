@@ -66,9 +66,16 @@
   height: 100vh;
   padding: 10px;
   padding-top: 50px;
+  display: flex;
+  flex-direction: column;
 }
 .login
 {
   left: 50%;
   top: 50%;
+}
+.hoverChange:hover
+{
+  font-weight: bold;
+  padding: 1px;
 }
