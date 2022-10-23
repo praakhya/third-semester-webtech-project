@@ -2,15 +2,18 @@ import './App.css'
 import Button from 'react-bootstrap/Button';
 function Nav(props)
 {
+    //console.log("nav", props.comps)
     const handleHome = () => 
     {
-        props.onHome();
-        props.offLogin();
+        props.toggle("home", props.comps);
+        //props.onHome();
+        //props.offLogin();
     }
     const handleLogin = () => 
     {
-        props.offHome();
-        props.onLogin();
+        props.toggle("login",props.comps);
+        //props.offHome();
+        //props.onLogin();
     }
     return (
         <div className="nav">

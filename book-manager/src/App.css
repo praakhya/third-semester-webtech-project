@@ -4,7 +4,7 @@
   flex-direction: row;
   align-items: center;
   flex-grow: 1;
-  width: 100vw;
+  width: 100%;
 }
 
 .App-logo {
@@ -71,8 +71,8 @@
 }
 .login
 {
-  left: 50%;
-  top: 50%;
+  margin: auto;
+  width: 70%;
 }
 .hoverChange:hover
 {
