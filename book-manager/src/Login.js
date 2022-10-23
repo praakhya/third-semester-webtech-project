@@ -26,17 +26,17 @@ function Login(props)
 
             console.log(response)
             if (response.status != 200) {
-                throw new Error(`Request ended with status code ${response.status}`);
+                throw new Error(response.message);
             }
             return response.json();
         })
         .then((data) => {
             console.log(data)
-            setDisp(dataRecieved=>data.username+data.fullname);
+            props.initUser(data.username,data.fullname);
+            props.toggle("main",props.comps);
         })
         .catch((err) => {
             console.log(err);
-            setDisp(dataRecieved=>"Error " + err.message);
         });
     };
     const switchToSignup = () => {
@@ -53,7 +53,6 @@ function Login(props)
             <input type="password" className="form-control" id="pswd" ref={pswdRef}/>
             <button type="button" className="btn" onClick={confirmLogin}>Login</button>
             <button type="button" className="btn btn-link" onClick={switchToSignup}>New here? Create an account</button>
-            <p>{dataRecieved}</p>
         </div>
     )
     

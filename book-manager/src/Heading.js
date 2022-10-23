@@ -1,8 +1,8 @@
 import './App.css'
-function Heading()
+function Heading(props)
 {
     return (
-        <h1 className="Heading">Hello World</h1>
+        <h1 className="Heading">Hello {props.fullname}</h1>
     )
 }
 export default Heading;

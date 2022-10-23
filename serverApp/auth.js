@@ -38,22 +38,31 @@ exports.auth = async (req,res) => {
 exports.addUser = async (req,res) => {
     const {username, password, fullname} = req.body;
     console.log(`username: ${username}, password: ${password}, fullname: ${fullname}`);
+    const userPresent = await User.findOne({username:username}).exec();
     try {
-        await User.create({
-            username,
-            password,
-            fullname
-        }).then(user => {
-            console.log(`username: ${user.username}, password: ${user.password}, fullname: ${user.fullname}`);
-            res.status(200).json({
-                message: "User created",
-                user
-            })
+        if (!userPresent)
+        {
+            console.log("adding: ",username,password,fullname);
+            await User.create({
+                username,
+                password,
+                fullname
+            }).then(user => {
+                console.log(`username: ${user.username}, password: ${user.password}, fullname: ${user.fullname}`);
+                res.status(200).json({
+                    message: "User created",
+                    username: user.username,
+                    fullname: user.fullname
+                })
+            }
+            )
         }
-        )
+        else{
+            throw new Error(`Username already exists`);
+        }
     } 
     catch (err) {
-        res.status(401).json({
+        res.status(409).json({
             message: "User creation unsuccessful",
             error: err.message
         })
