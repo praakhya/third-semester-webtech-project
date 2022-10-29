@@ -1,12 +1,13 @@
-import Book from "./Book";
+
 import "./App.css";
+//import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+//import { Carousel } from 'react-responsive-carousel';
+import "react-multi-carousel/lib/styles.css";
+import MyCarousel from "./MyCarousel";
 function Main(props){
-    var books = props.topBooks.map((b)=>{return <Book name={b.name} cover={b.cover} author={b.auth}/>});
     return (
-    <div className="topCollection">
-        {books}
-    </div>
-        
-    )
+    <div className="main">
+        <MyCarousel topBooks={props.topBooks}/>
+    </div>);
 }
 export default Main;

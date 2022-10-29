@@ -83,5 +83,21 @@
 .topCollection
 {
   display: flex;
-  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: #282c34;
+  width: 100%;
+}
+.topBooksImg{
+  max-height:200px;
+  height: 100px;
+}
+.Book {
+  padding: 5px;
+}
+
+
+.main {
+  width:700px;
+  padding:10px;
 }

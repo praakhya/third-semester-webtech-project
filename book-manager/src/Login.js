@@ -9,7 +9,7 @@ function Login(props)
     var pswdRef = React.createRef();
     var opRef = React.createRef();
     var [dataRecieved,setDisp] = useState("");
-    
+    var [errLogin, setErrLogin]=useState("");
     const confirmLogin = () => {
         console.log(usrRef.current.value,pswdRef.current.value);
         fetch(baseUrl+'/auth/login', {
@@ -26,6 +26,7 @@ function Login(props)
 
             console.log(response)
             if (response.status != 200) {
+                setErrLogin(errLogin=>"Login Failed. The username may not exist, please try creating a new account");
                 throw new Error(response.message);
             }
             return response.json();
@@ -53,6 +54,7 @@ function Login(props)
             <input type="password" className="form-control" id="pswd" ref={pswdRef}/>
             <button type="button" className="btn" onClick={confirmLogin}>Login</button>
             <button type="button" className="btn btn-link" onClick={switchToSignup}>New here? Create an account</button>
+            <p>{errLogin}</p>
         </div>
     )
     

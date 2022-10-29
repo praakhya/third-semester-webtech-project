@@ -1,10 +1,11 @@
+import "./App.css";
 function Book(props)
 {
     return (
-        <div>
-            <img src={props.cover} width="100px"/>
-            <p width="100px">{props.name}</p>
-            <p width="100px">{props.author}</p>
+        <div className="Book">
+            <img className="topBooksImg" src={props.cover}/>
+            <p width="200px">{props.name}</p>
+            <p width="200px">{props.author}</p>
         </div>
     )
 }
