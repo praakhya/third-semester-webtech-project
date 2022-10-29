@@ -79,3 +79,9 @@
   font-weight: bold;
   padding: 1px;
 }
+
+.topCollection
+{
+  display: flex;
+  flex-direction: row;
+}

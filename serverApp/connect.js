@@ -5,7 +5,7 @@ const connectDB = async() => {
     await mongoAPI.connect(localDB, {
         useNewUrlParser: true,
         useUnifiedTopology: true
-    })
+    });
     console.log("Connected to MongoDB");
 }
 module.exports = connectDB;
