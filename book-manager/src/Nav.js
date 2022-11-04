@@ -1,34 +1,27 @@
 import './App.css'
 import Button from 'react-bootstrap/Button';
-import {useState} from 'react';
-function Nav(props)
+import React, {useState} from 'react';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Login from './Login';
+import Signup from './Signup';
+import Main from './Main';
+import Layout from './Layout';
+const Nav = React.forwardRef((ref,props)=>
 {
-    var [loggedIn, setLog] = useState(props.loggedIn);
-    const handleHome = () => 
-    {
-        props.toggle("home", props.comps);
-        setLog(loggedIn => props.loggedIn);
-    }
-    const handleLogin = () => 
-    {
-        props.toggle("login",props.comps);
-        setLog(loggedIn => props.loggedIn);
-    }
-    const handleMain = () => 
-    {
-        props.toggle("main",props.comps);
-        setLog(loggedIn => props.loggedIn);
-    }
+    console.log("refs: ",ref);
     return (
-        <div className="nav">
-            <h1>Navigate</h1>
-            <br/>
-            <button type="button" className="btn text-light hoverChange" onClick = {handleHome}>Home</button>
-            <button type="button" className="btn text-light hoverChange" onClick = {handleLogin}>{loggedIn?"Logout":"Login"}</button>
-            <button type="button" className="btn text-light hoverChange">About</button>
-            <button type="button" className="btn text-light hoverChange">Contact</button>
-            <button type="button" className="btn text-light hoverChange" onClick={handleMain}>View Books</button>
-        </div>
+        <>
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={< Layout/>} className="nav">
+                    <Route index element={ref[0]} />
+                    <Route path="login/*" element={props.logRef} />
+                    <Route path="signup" element={props.signRef} />
+                    <Route path="*" element={<p>Error</p>} />
+                </Route>
+            </Routes>
+        </BrowserRouter>
+      </>
     )
-}
+})
 export default Nav;
