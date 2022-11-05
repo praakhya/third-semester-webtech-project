@@ -4,7 +4,8 @@ import "react-multi-carousel/lib/styles.css";
 import Book from "./Book";
 import "./App.css";
 function MyCarousel(props) {
-    var books = props.topBooks.map((b)=>{return <div><Book name={b.name} cover={b.cover} author={b.auth}/></div>});
+    var ct=0;
+    var books = props.topBooks.map((b)=>{return <div key={ct}><Book name={b.name} cover={b.cover} author={b.auth}/></div>});
     const responsive = {
     superLargeDesktop: {
         // the naming can be any, depends on you.
@@ -12,7 +13,7 @@ function MyCarousel(props) {
         items: 5
     },
     desktop: {
-        breakpoint: { max: 3000, min: 1024 },
+        breakpoint: { max: 3000, min: 0 },
         items: 5
     },
     tablet: {
@@ -27,8 +28,9 @@ function MyCarousel(props) {
     return (
         <Carousel responsive={responsive}
             autoPlay={true}
-            autoPlaySpeed={2000}
-            centerMode={true}>
+            autoPlaySpeed={3000}
+            centerMode={true}
+            containerClass="carousel-container">
         {books}
         </Carousel>
     );

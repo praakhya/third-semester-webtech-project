@@ -21,7 +21,7 @@ function Nav(props)
     }
     return (
         <div className="nav">
-            <h1>Navigate</h1>
+            <h1 className="nav-head">Navigate</h1>
             <br/>
             <button type="button" className="btn text-light hoverChange" onClick = {handleHome}>Home</button>
             <button type="button" className="btn text-light hoverChange" onClick = {handleLogin}>{loggedIn?"Logout":"Login"}</button>

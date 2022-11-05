@@ -1,10 +1,8 @@
 .App {
   text-align: center;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
-  flex-grow: 1;
-  width: 100%;
 }
 
 .App-logo {
@@ -49,12 +47,12 @@
 {
   background-color: black;
   color:antiquewhite;
-  flex-grow: 1;
-  width: 100vw;
   top: 0px;
-  padding: 10px;
-  position: fixed;
-  top:0px;
+  left: 0px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  position: sticky;
+  width: 100%;
 }
 .homePic
 {
@@ -64,10 +62,12 @@
   background-color: black;
   color: antiquewhite;
   height: 100vh;
-  padding: 10px;
-  padding-top: 50px;
   display: flex;
   flex-direction: column;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 3;
 }
 .login
 {
@@ -95,9 +95,37 @@
 .Book {
   padding: 5px;
 }
+.openNav
+{
+  z-index: 4;
+  height: 8vmin;
+  position: fixed;
+  align-self:flex-start;
+  left: 0px;
+  top: 0px;
+}
 
+.main
+{
+  width: inherit;
+}
+.carousel-container
+{
+  background-color: black;
+  z-index: 0;
 
-.main {
-  width:700px;
+}
+.content
+{
+  width: 100vw;
+  display: flex;
+}
+.body
+{
+  display:flex;
+  flex-direction: row;
+}
+.nav-head{
   padding:10px;
+  padding-top: 60px;
 }
