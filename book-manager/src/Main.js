@@ -8,10 +8,7 @@ import img1 from "./images/topBooks/itEndsWithUs.jpg";
 import img2 from "./images/topBooks/goToDinners.jpeg";
 import img3 from "./images/topBooks/andThereWasLight.jpg";
 import React from "react";
-const Main = React.forwardRef((props, ref)=>{
-    console.log("props: ",props,"ref: ",ref);
-    if (props.navRef!=undefined && props.navRef.current!=null)
-        props.navRef.current.className="hide";
+function Main(props){
     const topBooks= [
         {
           name: "It ends with us",
@@ -33,5 +30,5 @@ const Main = React.forwardRef((props, ref)=>{
     <div className="main">
         <MyCarousel topBooks={topBooks}/>
     </div>);
-})
+}
 export default Main;

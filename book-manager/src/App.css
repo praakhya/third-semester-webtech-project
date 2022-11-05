@@ -7,20 +7,6 @@
   width: 100%;
 }
 
-.App-logo {
-  height: 8vmin;
-  position: absolute;
-  left: 2px;
-  top: 18px;
-  z-index: 3;
-
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
 
 .App-header {
   background-color: #282c34;
@@ -37,14 +23,6 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
 .Heading
 {
   background-color: black;
@@ -53,8 +31,7 @@
   width: 100vw;
   top: 0px;
   padding: 10px;
-  position: fixed;
-  top:0px;
+  position: sticky;
 }
 .homePic
 {
@@ -113,9 +90,9 @@
 .openNav
 {
   width:50px;
-  position:absolute;
+  position:fixed;
   left: 3px;
-  top:3px;
+  top:10px;
   z-index: 6;
 }
 .hide

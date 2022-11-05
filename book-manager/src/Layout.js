@@ -6,11 +6,11 @@ function Layout()
         <>
         <nav className="nav">
         <h1 className="navText">Navigate</h1>
-              <Link to="/" className="navText">Welcome</Link>
+              <Link to="/" className="navText">Home</Link>
+              <Link to="/welcome" className="navText">Welcome</Link>
               <Link to="/login" className="navText">Login</Link>
               <Link to="/signup" className="navText">Sign up</Link>
         </nav>
-  
         <Outlet />
       </>
         )

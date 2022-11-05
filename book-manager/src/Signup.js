@@ -1,10 +1,8 @@
 import React from 'react';
 import { useState } from 'react';
 import { propTypes } from 'react-bootstrap/esm/Image';
-const Signup = React.forwardRef((ref,props)=> {
-    console.log("props: ",props,"ref: ",ref);
-    if (props.navRef!=undefined && props.navRef.current!=null)
-        props.navRef.current.className="hide";
+function Signup(props)
+{
     var userRef = React.createRef();
     var nameRef = React.createRef();
     var pswd1 = React.createRef();
@@ -65,5 +63,5 @@ const Signup = React.forwardRef((ref,props)=> {
         <button type="button" className="btn" onClick={pswdValidity}>Sign up</button>
     </div>
     )
-})
+}
 export default Signup;

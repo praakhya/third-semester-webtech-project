@@ -6,22 +6,24 @@ import Login from './Login';
 import Signup from './Signup';
 import Main from './Main';
 import Layout from './Layout';
-const Nav = React.forwardRef((ref,props)=>
+import Home from './Home';
+function Nav(props)
 {
-    console.log("refs: ",ref);
     return (
         <>
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={< Layout/>} className="nav">
-                    <Route index element={ref[0]} />
-                    <Route path="login/*" element={props.logRef} />
-                    <Route path="signup" element={props.signRef} />
+                    <Route index element={<Home/>} />
+                    <Route path="welcome" element={<Main/>}/>
+                    <Route path="login/*" element={<Login/>} />
+                    <Route path="signup" element={<Signup/>} />
                     <Route path="*" element={<p>Error</p>} />
                 </Route>
             </Routes>
         </BrowserRouter>
       </>
     )
-})
+}
+console.log("After nav");
 export default Nav;

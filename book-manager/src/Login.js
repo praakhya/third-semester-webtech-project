@@ -6,8 +6,6 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Signup from './Signup';
 
 function Login(props) {
-    if (props.navRef!=undefined && props.navRef.current!=null)
-        props.navRef.current.className="hide";
     var baseUrl = "/api";
     var usrRef = React.createRef();
     var pswdRef = React.createRef();
