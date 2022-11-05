@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Collapse } from 'bootstrap';
 import logo from './logo.svg';
 import './App.css';
 import Heading from './Heading.js';
@@ -28,7 +29,7 @@ function App() {
     <div className="App">
       <Heading></Heading>
       <img src={logo} className="openNav" onClick={toggleNav}/>
-      {navVisible?<Nav></Nav>:<span></span>}
+      <Nav visible={navVisible} className="collapse show"></Nav>
     </div>
     
   );

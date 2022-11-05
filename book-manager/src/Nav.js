@@ -16,7 +16,7 @@ function Nav(props)
                 <Route path="/" element={< Layout/>} className="nav">
                     <Route index element={<Home/>} />
                     <Route path="welcome" element={<Main/>}/>
-                    <Route path="login/*" element={<Login/>} />
+                    <Route path="login" element={<Login/>} />
                     <Route path="signup" element={<Signup/>} />
                     <Route path="*" element={<p>Error</p>} />
                 </Route>
