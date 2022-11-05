@@ -10,19 +10,15 @@ import Home from './Home';
 function Nav(props)
 {
     return (
-        <>
-        <BrowserRouter>
-            <Routes>
-                <Route path="/" element={< Layout/>} className="nav">
-                    <Route index element={<Home/>} />
-                    <Route path="welcome" element={<Main/>}/>
-                    <Route path="login" element={<Login/>} />
-                    <Route path="signup" element={<Signup/>} />
-                    <Route path="*" element={<p>Error</p>} />
-                </Route>
-            </Routes>
-        </BrowserRouter>
-      </>
+        <div className="nav">
+            <h1 className="nav-head">Navigate</h1>
+            <br/>
+            <button type="button" className="btn text-light hoverChange" onClick = {handleHome}>Home</button>
+            <button type="button" className="btn text-light hoverChange" onClick = {handleLogin}>{loggedIn?"Logout":"Login"}</button>
+            <button type="button" className="btn text-light hoverChange">About</button>
+            <button type="button" className="btn text-light hoverChange">Contact</button>
+            <button type="button" className="btn text-light hoverChange" onClick={handleMain}>View Books</button>
+        </div>
     )
 }
 console.log("After nav");
