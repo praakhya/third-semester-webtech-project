@@ -76,7 +76,7 @@ function App() {
         </div>
         <div className="content">
           {homeVisibility ? <img className="homePic" src={homeBg}></img> : <span></span>}
-          {loginVisibility ? <Login comps={comps} initUser={initUser} toggle={toggleVisibility} onLogin={onLogin} offLogin={offLogin} onSignup={onSignup} offSignup={offSignup} /> : <span></span>}
+          {!loggedIn&&loginVisibility ? <Login comps={comps} initUser={initUser} toggle={toggleVisibility} onLogin={onLogin} offLogin={offLogin} onSignup={onSignup} offSignup={offSignup} /> : <span></span>}
           {signup ? <Signup comps={comps} initUser={initUser} toggle={toggleVisibility} /> : <span></span>}
           {mainVisibility ? <Main comps={comps} toggle={toggleVisibility} username={user.username} fullname={user.fullname} topBooks={topBooks} /> : <span></span>}
         </div>
