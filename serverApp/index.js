@@ -2,7 +2,7 @@ const express = require('express')
 const path = require("path");
 const app = express();
 app.use(express.json());
-app.use("/api/auth", require("./appRoute"))
+app.use("/api", require("./appRoute"))
 app.use(express.static(path.join(__dirname,"../book-manager/build")))
 const port = 3000
 const connectDB = require("./connect");

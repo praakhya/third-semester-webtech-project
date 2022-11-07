@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Heading from './Heading.js';
@@ -7,9 +8,7 @@ import Login from './Login';
 import Nav from './Nav'
 import Signup from './Signup';
 import Main from './Main';
-import img1 from "./images/topBooks/itEndsWithUs.jpg";
-import img2 from "./images/topBooks/goToDinners.jpeg";
-import img3 from "./images/topBooks/andThereWasLight.jpg";
+import { bookContext, BookConsumer, BookProvider } from './bookContext';
 
 function App() {
 
@@ -48,37 +47,50 @@ function App() {
       }
     }
   }
-  const topBooks = [
-    {
-      name: "It ends with us",
-      author: "Collin Hoover",
-      cover: img1
-    },
-    {
-      name: "Go-To Dinners: A Barefoot Contessa Cookbook",
-      author: "Ina Garten",
-      cover: img2
-    },
-    {
-      name: "And There Was Light: Abraham Lincoln and the American Struggle Book",
-      author: "Jon Meacham",
-      cover: img3
-    }
-  ]
+  var topBooks = [];
+  
 
+  const getBooks = () => {
+    console.log("in get books");
+    var baseUrl = "/api";
+    fetch(baseUrl + '/load/books', {
+      method: 'GET',
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8'
+      }
+    })
+      .then(response => {
+
+        if (response.status != 200) {
+          throw new Error(response.message);
+        }
+        return response.json()
+      })
+      .then((response) => {
+        console.log("response in getBooks: ", response);
+        console.log("data: ", response);
+        topBooks = response;
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+  //getBooks();
   return (
     <div className="App">
       <Heading username={user.username} fullname={user.fullname} />
       <img className="openNav" src={logo} onClick={toggleNav}></img>
       <div className='body'>
-        <div onMouseLeave ={toggleNav}>
+        <div onMouseLeave={toggleNav}>
           {navVisibility ? <Nav comps={comps} toggle={toggleVisibility} offHome={offHome} onHome={onHome} offLogin={offLogin} onLogin={onLogin} loggedIn={loggedIn} onMain={onMain} offMain={offMain} /> : <span></span>}
         </div>
         <div className="content">
           {homeVisibility ? <img className="homePic" src={homeBg}></img> : <span></span>}
-          {!loggedIn&&loginVisibility ? <Login comps={comps} initUser={initUser} toggle={toggleVisibility} onLogin={onLogin} offLogin={offLogin} onSignup={onSignup} offSignup={offSignup} /> : <span></span>}
+          {!loggedIn && loginVisibility ? <Login comps={comps} initUser={initUser} toggle={toggleVisibility} onLogin={onLogin} offLogin={offLogin} onSignup={onSignup} offSignup={offSignup} /> : <span></span>}
           {signup ? <Signup comps={comps} initUser={initUser} toggle={toggleVisibility} /> : <span></span>}
-          {mainVisibility ? <Main comps={comps} toggle={toggleVisibility} username={user.username} fullname={user.fullname} topBooks={topBooks} /> : <span></span>}
+          <BookProvider value={topBooks}>
+          {mainVisibility ? <Main comps={comps} toggle={toggleVisibility} username={user.username} fullname={user.fullname}  /> : <span></span>}
+          </BookProvider>
         </div>
       </div>
     </div>

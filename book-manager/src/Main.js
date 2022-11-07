@@ -7,7 +7,7 @@ import MyCarousel from "./MyCarousel";
 function Main(props){
     return (
     <div className="main">
-        <MyCarousel topBooks={props.topBooks}/>
+        <MyCarousel/>
     </div>);
 }
 export default Main;

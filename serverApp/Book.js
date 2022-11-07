@@ -1,14 +1,14 @@
 const mongoDB = require("mongoose");
 const schema = new mongoDB.Schema({
-    username: {
+    name: {
         type: String
     },
-    password: {
+    author: {
         type: String
     },
-    fullname: {
+    cover: {
         type: String
     }
 })
-const User = mongoDB.model("User", schema, "Users");
-module.exports = User;
+const Book = mongoDB.model("Book", schema, "Books");
+module.exports = Book;
