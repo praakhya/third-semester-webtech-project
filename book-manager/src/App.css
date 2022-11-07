@@ -84,8 +84,7 @@
   width: 100%;
 }
 .topBooksImg{
-  max-height:50%;
-  flex-shrink: 1;
+  max-height:50%;  
 }
 .Book {
   padding: 5px;
@@ -138,6 +137,11 @@
   display: flex;
   flex-direction: row;
   justify-content: baseline;
+  height: 300px;
+}
+.react-multi-carousel-track {
+  width:100%;
+  height: inherit;
 }
 .content
 {

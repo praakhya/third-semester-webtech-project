@@ -5,7 +5,6 @@ import Book from "./Book";
 import "./App.css";
 import { BookConsumer } from "./bookContext";
 function MyCarousel() {
-
     const responsive = {
         superLargeDesktop: {
             // the naming can be any, depends on you.
@@ -14,7 +13,7 @@ function MyCarousel() {
         },
         desktop: {
             breakpoint: { max: 3000, min: 0 },
-            items: 5
+            items: 4
         },
         tablet: {
             breakpoint: { max: 1024, min: 464 },
@@ -26,18 +25,18 @@ function MyCarousel() {
         }
     };
     return (
-
-        <Carousel responsive={responsive} containerClass="carousel-container">
-            <BookConsumer>
-                {(books) => {
+        <BookConsumer>
+            {
+                (books) => {
                     var ct = 0;
                     console.log("myCarousel: ",books);
                     var tagBooks = books.map((b) => { return <div key={ct}><Book name={b.name} cover={b.cover} author={b.auth} /></div> });
-                    return tagBooks
+                    return <Carousel responsive={responsive} containerClass="carousel-container" swipeable={true}>
+                        {tagBooks}
+                    </Carousel>
                     }
-                }
-            </BookConsumer>
-        </Carousel>
+            }
+        </BookConsumer>
     );
 }
 export default MyCarousel;
