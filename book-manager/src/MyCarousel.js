@@ -1,8 +1,8 @@
 
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import Book from "./Book";
 import "./App.css";
+import Book from "./Book";
 import { BookConsumer } from "./bookContext";
 function MyCarousel() {
     const responsive = {
@@ -52,12 +52,11 @@ function MyCarousel() {
                             }
                         ]
                     }
-                    var tagBooks = books.map((b) => { return <div key={ct}><Book name={b.name} cover={imagePath+b.cover} author={b.auth} /></div> });
-                    return <Carousel 
-                    swipeable={true}
+                    var tagBooks = books.map((b) => { return <div key={ct}><Book name={b.name} cover={imagePath+b.cover} author={b.auth} bookClass="topBook" imgClass="topBooksImg"/></div> });
+                    return <Carousel
                     responsive={responsive} 
-                    containerClass="carousel-container" 
-                    swipeable={true} arrows={true}>
+                    containerClass="carousel-container"
+                    arrows={true}>
                         {tagBooks}
                     </Carousel>
                     }

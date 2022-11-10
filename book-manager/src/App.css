@@ -86,9 +86,8 @@
 .topBooksImg{
   max-height:50%;  
 }
-.Book {
+.topBook {
   padding: 5px;
-  margin: 2px;
   box-shadow: 1px 1px 1px 1px #ffffff94;
   border-radius: 5px;
   display: flex;
@@ -96,23 +95,34 @@
   flex-direction: column;
   justify-content: space-around;
   height: 380px;
-  max-width: 250px;
   overflow: hidden;
-  flex-shrink: 1;
+  max-width: 250px;
 }
-.Book:hover {
+.topBook:hover {
   padding: 5px;
-  margin: 2px;
   box-shadow: 1px 1px 1px 1px white;
   border-radius: 5px;
-  max-width: 250px;
   height: 380px;
   color: #61dafb;
   background-color: #282c34;
-
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  max-width: 250px;
 }
-
-
+.gridBook
+{
+  padding: 5px;
+  margin: 2px; 
+  justify-content: space-around;
+  max-width: 400px;
+  overflow: hidden;
+  flex-shrink: 1;
+  flex-grow: 1;;
+}
+.gridBooksImg{
+  width: 300px; 
+}
 .openNav
 {
   z-index: 4;
@@ -127,6 +137,7 @@
   width: 100%;
   display: flex;
   justify-content: center;
+  flex-direction: column;
 }
 .carousel-container
 {
@@ -135,9 +146,6 @@
   z-index: 0;
   color: antiquewhite;
   padding: 5px;
-  display: flex;
-  flex-direction: row;
-  justify-content: baseline;
 }
 .react-multi-carousel-track {
   width:100%;
@@ -160,4 +168,11 @@
   padding-top: 60px;
   left: 10px;
   top: 10px;
+}
+
+.grid
+{
+  display: flex;
+  padding: 2px;
+  flex-wrap: wrap;
 }
