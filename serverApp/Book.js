@@ -1,12 +1,12 @@
 const mongoDB = require("mongoose");
 const schema = new mongoDB.Schema({
-    name: {
+    title: {
         type: String
     },
     author: {
         type: String
     },
-    cover: {
+    imageLink: {
         type: String
     }
 })

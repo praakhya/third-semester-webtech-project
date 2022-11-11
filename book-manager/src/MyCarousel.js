@@ -30,29 +30,29 @@ function MyCarousel() {
                 (books) => {
                     var ct = 0;
                     console.log("myCarousel: ",books);
-                    var imagePath="./images/topBooks/";
+                    var imagePath="./images/";
                     if (books==null)
                     {
                         books=[
                             {
-                                name:"It Ends With Us",
-                                author: "Colleen Hoover",
-                                cover: `itEndsWithUs.jpg`,
+                                "title":"It Ends With Us",
+                                "author": "Colleen Hoover",
+                                "imageLink": `${imagePath}itEndsWithUs.jpg`,
 
                             },
                             {
-                                "name":"Go-To Dinners: A Barefoot Contessa Cookbook",
+                                "title":"Go-To Dinners: A Barefoot Contessa Cookbook",
                                 "author":"Ina Garten",
-                                "cover":`goToDinners.jpeg`
+                                "imageLink":`${imagePath}goToDinners.jpeg`
                             },
                             {
-                                "name":"And There Was Light: Abraham Lincoln and the American Struggle Book",
+                                "title":"And There Was Light: Abraham Lincoln and the American Struggle Book",
                                 "author":"Jon Meacham",
-                                "cover":`andThereWasLight.jpg`
+                                "imageLink":`${imagePath}andThereWasLight.jpg`
                             }
                         ]
                     }
-                    var tagBooks = books.map((b) => { return <div key={ct}><Book name={b.name} cover={imagePath+b.cover} author={b.auth} bookClass="topBook" imgClass="topBooksImg"/></div> });
+                    var tagBooks = books.map((b) => { return <div key={ct}><Book title={b.title} cover={b.imageLink} author={b.auth} bookClass="topBook" imgClass="topBooksImg"/></div> });
                     return <Carousel
                     responsive={responsive} 
                     containerClass="carousel-container"

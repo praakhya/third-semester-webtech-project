@@ -9,7 +9,7 @@ function Grid(props)
                 (books) => {
                     var ct = 0;
                     console.log("Grid: ",books);
-                    var imagePath="./images/topBooks/";
+                    var imagePath="./images/";
                     if (books==null)
                     {
                         books=[
@@ -31,7 +31,7 @@ function Grid(props)
                             }
                         ]
                     }
-                    var tagBooks = books.map((b) => { return <div key={ct}><Book name={b.name} cover={imagePath+b.cover} author={b.auth} bookClass="gridBook" imgClass="gridBooksImg"/></div> });
+                    var tagBooks = books.map((b) => { return <div key={ct}><Book name={b.name} cover={b.cover} author={b.auth} bookClass="gridBook" imgClass="gridBooksImg"/></div> });
                     return (
                     <div className="grid"> 
                         {tagBooks}
