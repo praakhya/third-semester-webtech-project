@@ -1,5 +1,6 @@
 
-import Carousel from "react-multi-carousel";
+//import Carousel from "react-multi-carousel";
+import {Carousel} from "customizable-horizontal-carousel"
 import "react-multi-carousel/lib/styles.css";
 import "./App.css";
 import Book from "./Book";
@@ -53,10 +54,10 @@ function MyCarousel() {
                     }
                     console.log("MyCarousel: ",books.topBooks);
                     var tagBooks = books.topBooks.map((b) => { return <div key={ct}><Book title={b.title} imageLink={b.imageLink} author={b.author} bookClass="topBook" imgClass="topBooksImg"/></div> });
-                    return <Carousel
-                    responsive={responsive} 
+                    return <Carousel 
                     containerClass="carousel-container"
-                    arrows={true}>
+                    countVisible={3} 
+                    shiftAmount={1}>
                         {tagBooks}
                     </Carousel>
                     }
