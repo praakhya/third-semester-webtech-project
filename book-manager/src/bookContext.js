@@ -6,6 +6,7 @@ const bookContext= React.createContext();
   function BookProvider({ children }) {
     // The useState() hook defines a state variable.
     const [bookData, setBookData] = useState(null);
+    const [topBookData, setTopBookData] = useState(null);
     // The useEffect() hook registers a function to run after render.
     useEffect(() => {
         console.log("in get books");
@@ -25,8 +26,17 @@ const bookContext= React.createContext();
           })
           .then((response) => {
             console.log("response in getBooks: ", response);
-            console.log("data: ", response);
+            var topBooks=[];
+            for (var i of response)
+            {
+              if (i.top=="true")
+              {
+                topBooks.push(i);
+              }
+            }
+            console.log("top books: ",topBooks);
             setBookData(response);
+            setTopBookData(topBooks);
           })
           .catch((err) => {
             console.log(err);
@@ -40,7 +50,7 @@ const bookContext= React.createContext();
     // user data to provide to any consumers. (And the effect will not
     // run again.)
     return (
-      <context.Provider value={bookData}>
+      <context.Provider value={{books: bookData, topBooks: topBookData}}>
         {children}
       </context.Provider>
     );

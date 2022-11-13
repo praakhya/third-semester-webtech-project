@@ -29,11 +29,10 @@ function MyCarousel() {
             {
                 (books) => {
                     var ct = 0;
-                    console.log("myCarousel: ",books);
-                    var imagePath="./images/";
-                    if (books==null)
+                    var imagePath="images/";
+                    if (books.topBooks==null)
                     {
-                        books=[
+                        books.topBooks=[
                             {
                                 "title":"It Ends With Us",
                                 "author": "Colleen Hoover",
@@ -52,7 +51,8 @@ function MyCarousel() {
                             }
                         ]
                     }
-                    var tagBooks = books.map((b) => { return <div key={ct}><Book title={b.title} cover={b.imageLink} author={b.auth} bookClass="topBook" imgClass="topBooksImg"/></div> });
+                    console.log("MyCarousel: ",books.topBooks);
+                    var tagBooks = books.topBooks.map((b) => { return <div key={ct}><Book title={b.title} imageLink={b.imageLink} author={b.author} bookClass="topBook" imgClass="topBooksImg"/></div> });
                     return <Carousel
                     responsive={responsive} 
                     containerClass="carousel-container"

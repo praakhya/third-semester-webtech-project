@@ -37,7 +37,7 @@ function App() {
   { name: "signup", on: onSignup, off: offSignup },
   { name: "main", on: onMain, off: offMain }];
   const toggleVisibility = (keepCompOn, comps) => {
-    console.log(keepCompOn, comps);
+    console.log(keepCompOn);
     for (var i of comps) {
       if (keepCompOn == i.name) {
         i.on();
