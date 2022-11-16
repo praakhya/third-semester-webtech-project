@@ -9,3 +9,5 @@ const connectDB = async() => {
     console.log("Connected to MongoDB");
 }
 module.exports = connectDB;
+//mongoexport --uri="mongodb+srv://pmongodb:pmongodb123@cluster0.9xjds62.mongodb.net/bookAppDB?retryWrites=true&w=majority"  --collection="Books"  --out=mongoBooks.json
+//mongoexport --uri="mongodb+srv://pmongodb:pmongodb123@cluster0.9xjds62.mongodb.net/bookAppDB?retryWrites=true&w=majority"  --collection="Users"  --out=mongoUsers.json
