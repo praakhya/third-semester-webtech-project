@@ -1,6 +1,6 @@
 import { useState, useContext } from 'react';
 import React from 'react';
-import logo from './logo.svg';
+import logo from './images/setup/logo.png';
 import './App.css';
 import Heading from './Heading.js';
 import homeBg from './images/homeBg.png';
@@ -9,6 +9,7 @@ import Nav from './Nav'
 import Signup from './Signup';
 import Main from './Main';
 import { bookContext, BookConsumer, BookProvider } from './bookContext';
+import loginBg from './images/setup/loginBg.jpg';
 
 function App() {
 
@@ -75,6 +76,16 @@ function App() {
         console.log(err);
       });
   };
+  var appStyle = { backgroundImage: `url("${loginBg}")`}
+    /*{
+    textAlign: "center",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "rgb(247,243,237)",
+    height: "100%"
+  }*/
   //getBooks();
   return (
     <div className="App">

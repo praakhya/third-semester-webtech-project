@@ -1,0 +1,25 @@
+[{
+  "username": "b",
+  "password": "123",
+  "fullname": "a"
+},{
+  "username": "me",
+  "password": "12345",
+  "fullname": "I am me"
+},{
+  "username": "a",
+  "password": "123",
+  "fullname": "abc"
+},{
+  "username": "me",
+  "password": "12345",
+  "fullname": "I am me"
+},{
+  "username": "e",
+  "password": "123",
+  "fullname": "eagle"
+},{
+  "username": "c",
+  "password": "123",
+  "fullname": "a"
+}]

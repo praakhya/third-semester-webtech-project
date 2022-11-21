@@ -47,14 +47,16 @@ function Login(props)
     }
     return (
         <div className="login">
-            <h1>Login</h1>
-            <label>Username</label>
-            <input type="text" className="form-control" id="usr" ref={usrRef}/>
-            <label>Password</label>
-            <input type="password" className="form-control" id="pswd" ref={pswdRef}/>
-            <button type="button" className="btn" onClick={confirmLogin}>Login</button>
-            <button type="button" className="btn btn-link" onClick={switchToSignup}>New here? Create an account</button>
-            <p>{errLogin}</p>
+            <div className="loginBox">
+                <h1>Login</h1>
+                <label>Username</label>
+                <input type="text" className="form-control" id="usr" ref={usrRef}/>
+                <label>Password</label>
+                <input type="password" className="form-control" id="pswd" ref={pswdRef}/>
+                <button type="button" className="btn" onClick={confirmLogin}>Login</button>
+                <button type="button" className="btn btn-link" onClick={switchToSignup}>New here? Create an account</button>
+                <p>{errLogin}</p>
+            </div>
         </div>
     )
     
