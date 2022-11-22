@@ -1,6 +1,8 @@
 import React from 'react';
 import { useState } from 'react';
 import { propTypes } from 'react-bootstrap/esm/Image';
+import { useNavigate } from "react-router-dom";
+
 function Signup(props) {
     var userRef = React.createRef();
     var nameRef = React.createRef();
@@ -8,6 +10,11 @@ function Signup(props) {
     var pswd2 = React.createRef();
     var [disp, setDisp] = useState("");
     var baseUrl = "/api";
+    const navigate = useNavigate();
+    const navigateToMain = () => {
+        // navigate to /contacts
+        navigate('/main');
+    };
     const pswdValidity = () => {
         if (pswd1.current.value!=pswd2.current.value)
         {
@@ -42,7 +49,7 @@ function Signup(props) {
         .then((data) => {
             console.log("in .then: ",data)
             props.initUser(data.username,data.fullname);
-            props.toggle("main",props.comps);
+            navigateToMain();
         })
         .catch((err) => {
             console.log("in .catch: ",err);

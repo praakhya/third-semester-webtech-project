@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import React from 'react';
 import './App.css'
 import { useBootstrapPrefix } from 'react-bootstrap/esm/ThemeProvider';
+import { useNavigate } from "react-router-dom";
 function Login(props)
 {
     var baseUrl = "/api";
@@ -10,6 +11,11 @@ function Login(props)
     var opRef = React.createRef();
     var [dataRecieved,setDisp] = useState("");
     var [errLogin, setErrLogin]=useState("");
+    const navigate = useNavigate();
+    const navigateToMain = () => {
+        // navigate to /contacts
+        navigate('/main');
+    };
     const confirmLogin = () => {
         console.log(usrRef.current.value,pswdRef.current.value);
         fetch(baseUrl+'/auth/login', {
@@ -34,17 +40,16 @@ function Login(props)
         .then((data) => {
             console.log(data)
             props.initUser(data.username,data.fullname);
-            props.toggle("main",props.comps);
+            navigateToMain();
         })
         .catch((err) => {
             console.log(err);
         });
     };
     const switchToSignup = () => {
-        props.toggle("signup",props.comps);
-        //props.onSignup();
-        //props.offLogin();
+        navigate('/signup');
     }
+
     return (
         <div className="login">
             <div className="loginBox">
