@@ -27,15 +27,20 @@ const bookContext= React.createContext();
           .then((response) => {
             console.log("response in getBooks: ", response);
             var topBooks=[];
+            var books=[]
             for (var i of response)
             {
-              if (i.top=="true")
+              if (i!=undefined)
               {
-                topBooks.push(i);
+                if (i.top=="true")
+                {
+                  topBooks.push(i);
+                }
+                books.push(i);
               }
             }
             console.log("top books: ",topBooks);
-            setBookData(response);
+            setBookData(books);
             setTopBookData(topBooks);
           })
           .catch((err) => {

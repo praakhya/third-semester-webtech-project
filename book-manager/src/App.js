@@ -94,18 +94,20 @@ function App() {
       <img className="openNav" src={logo} onClick={toggleNav}></img>
       <div className='body'>
         <div onMouseLeave={toggleNav}>
-          {navVisibility ? <Nav comps={comps} toggle={toggleVisibility} offHome={offHome} onHome={onHome} offLogin={offLogin} onLogin={onLogin} loggedIn={loggedIn} onMain={onMain} offMain={offMain} /> : <span></span>}
+          {//navVisibility ? <Nav comps={comps} toggle={toggleVisibility} offHome={offHome} onHome={onHome} offLogin={offLogin} onLogin={onLogin} loggedIn={loggedIn} onMain={onMain} offMain={offMain} /> : <span></span>
+          <MyNav topBooks={topBooks} visible = {navVisibility} username={user.username} fullname={user.fullname} comps={comps} toggle={toggleVisibility} offHome={offHome} onHome={onHome} offLogin={offLogin} onLogin={onLogin} loggedIn={loggedIn} onMain={onMain} offMain={offMain}></MyNav>
+          }
         </div>
-        <div className="content">
+        {/*<div>
           {homeVisibility ? <img className="homePic" src={homeBg}></img> : <span></span>}
           {!loggedIn && loginVisibility ? <Login comps={comps} initUser={initUser} toggle={toggleVisibility} onLogin={onLogin} offLogin={offLogin} onSignup={onSignup} offSignup={offSignup} /> : <span></span>}
           {signup ? <Signup comps={comps} initUser={initUser} toggle={toggleVisibility} /> : <span></span>}
           <BookProvider value={topBooks}>
           {mainVisibility ? <Main comps={comps} toggle={toggleVisibility} username={user.username} fullname={user.fullname}  /> : <span></span>}
           </BookProvider>
-        </div>
+        </div>*/}
       </div>
-      <MyNav visible = {navVisibility}></MyNav>
+      
     </div>
   );
 }
