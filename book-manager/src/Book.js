@@ -24,8 +24,10 @@ function Book(props)
         return (
             <div className={props.bookClass} onMouseOver={toggleDet} onMouseOut={toggleDet}>
                 <img className={props.imgClass} src={require(`${baseUrl+props.imageLink}`)}/>
+                <div>
                 {detVis?<p width="200px">{props.title}</p>:<span></span>}
                 {detVis?<p width="200px">{props.author}</p>:<span></span>}
+                </div>
             </div>
         )
     }
