@@ -10,6 +10,7 @@ import Signup from './Signup';
 import Main from './Main';
 import { bookContext, BookConsumer, BookProvider } from './bookContext';
 import loginBg from './images/setup/loginBg.jpg';
+import MyNav from './MyNav';
 
 function App() {
 
@@ -104,6 +105,7 @@ function App() {
           </BookProvider>
         </div>
       </div>
+      <MyNav></MyNav>
     </div>
   );
 }
