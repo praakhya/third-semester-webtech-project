@@ -105,7 +105,7 @@ function App() {
           </BookProvider>
         </div>
       </div>
-      <MyNav></MyNav>
+      <MyNav visible = {navVisibility}></MyNav>
     </div>
   );
 }
