@@ -9,21 +9,23 @@ import Main from "./Main";
 import homeBg from './images/homeBg.png';
 import './App.css'
 import { bookContext, BookConsumer, BookProvider } from './bookContext';
+import BookSpotlight from "./BookSpotlight";
 function MyNav(props) {
   return (
     <div>
-    <BrowserRouter>
+      <BrowserRouter>
 
-      {props.visible?<Layout />:<span></span>}
-      <Routes  className="content">
-        <Route path="/" element={<img className="homePic" src={homeBg}></img>} />
-        <Route path="/login" element={<Login comps={props.comps} initUser={props.initUser} toggle={props.toggleVisibility} onSignup={props.onSignup} offSignup={props.offSignup}/>} />
-        <Route path="/signup" element={<Signup comps={props.comps} initUser={props.initUser} toggle={props.toggleVisibility} onSignup={props.onSignup} offSignup={props.offSignup}/>} />
-        <Route path="/main" element={<BookProvider value={props.topBooks}><Main comps={props.comps} username={props.username} fullname={props.fullname}/></BookProvider>} />
-        <Route path="*" element={<p>404</p>} />
-      </Routes>
-    </BrowserRouter>
+        {props.visible ? <Layout /> : <span></span>}
+        <Routes className="content">
+          <Route path="/" element={<img className="homePic" src={homeBg}></img>} />
+          <Route path="/login" element={<Login comps={props.comps} initUser={props.initUser} toggle={props.toggleVisibility} onSignup={props.onSignup} offSignup={props.offSignup} />} />
+          <Route path="/signup" element={<Signup comps={props.comps} initUser={props.initUser} toggle={props.toggleVisibility} onSignup={props.onSignup} offSignup={props.offSignup} />} />
+          <Route path="/main" element={<BookProvider value={props.topBooks}><Main comps={props.comps} username={props.username} fullname={props.fullname} /></BookProvider>} />
+          <Route path="/spotlight" element={<BookSpotlight></BookSpotlight>} />
+          <Route path="*" element={<p>404</p>} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
- export default MyNav;
+export default MyNav;
