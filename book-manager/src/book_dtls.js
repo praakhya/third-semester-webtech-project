@@ -3,13 +3,13 @@ import logo from './logo.svg';
 import './book_dtls.css';
 class Book_dtls extends Component {
     render() {
+        var baseUrl = "./";
+        console.log("In book dtls: ",baseUrl+this.props.imageLink);
         return (
             <div>
                 <h1>{this.props.title}</h1>
-                < div className='first' >
-
-                    <img className='image' src={require(`${this.props.imageLink}`)}></img>
-
+                <div className='first'>
+                    <img className='image' src={require(`${baseUrl+this.props.imageLink}`)}></img>
                     <div className='indes'>
                         <h1>{this.props.title}</h1>
                         <h2>Book Details</h2>
@@ -20,15 +20,10 @@ class Book_dtls extends Component {
                         <h3>{this.props.year}</h3>
                         <h3>{this.props.desc}</h3>
                     </div>
-
-
-                </div >
-
+                </div>
             </div>
         )
     }
-
-
 }
 class CommentBox extends Component {
     constructor() {
@@ -43,7 +38,7 @@ class CommentBox extends Component {
             ]
         };
     }
-
+    
     render() {
         const comments = this._getComments();
         let commentNodes;
@@ -73,7 +68,7 @@ class CommentBox extends Component {
         );
     } // end render
 
-
+    
     _addComment(author, body) {
         const comment = {
             id: this.state.comments.length + 1,

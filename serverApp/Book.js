@@ -8,6 +8,9 @@ const schema = new mongoDB.Schema({
     },
     imageLink: {
         type: String
+    },
+    comments: {
+        type: Array
     }
 })
 const Book = mongoDB.model("Book", schema, "Books");

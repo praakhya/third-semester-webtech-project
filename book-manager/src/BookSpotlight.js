@@ -3,8 +3,10 @@ import {
     CommentForm,
     Comment
 } from './book_dtls';
-import { useNavigate } from 'react-router-dom';
-function BookSpotlight() {
+import { useNavigate, useLocation } from 'react-router-dom';
+import { propTypes } from 'react-bootstrap/esm/Image';
+function BookSpotlight(props) {
+    var location=useLocation();
     function goBack() {
         navigateToMain();
     }
@@ -13,9 +15,10 @@ function BookSpotlight() {
         // navigate to /contacts
         navigate('/main');
     };
+    console.log("in book spotlight: ",props.imageLink);
     return (<div className="spotlight">
         <button onClick={goBack}>Back</button>
-        <Book_dtls title="BSB" desc="Praakhya has a very sexy brain" imageLink='./logo.svg' language="Old Norse" pages='384' year='2020' author="Praakhya the gr8" ></Book_dtls>
+        <Book_dtls title={location.state.title} desc={location.state.desc} imageLink={location.state.imageLink} language={location.state.language} year={location.state.year} author={location.state.author} ></Book_dtls>
         <CommentBox></CommentBox>
     </div>)
 }
