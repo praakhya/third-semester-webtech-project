@@ -3,6 +3,7 @@ import React from 'react';
 import './App.css'
 import { useBootstrapPrefix } from 'react-bootstrap/esm/ThemeProvider';
 import { useNavigate } from "react-router-dom";
+import loginBg from "./images/setup/loginBg.jpg";
 function Login(props)
 {
     var baseUrl = "/api";
@@ -52,16 +53,19 @@ function Login(props)
 
     return (
         <div className="login">
-            <div className="loginBox">
+            <br/>
+            <br/>
+            <div className="loginBox bg-secondary">
                 <h1>Login</h1>
                 <label>Username</label>
                 <input type="text" className="form-control" id="usr" ref={usrRef}/>
                 <label>Password</label>
                 <input type="password" className="form-control" id="pswd" ref={pswdRef}/>
                 <button type="button" className="btn" onClick={confirmLogin}>Login</button>
-                <button type="button" className="btn btn-link" onClick={switchToSignup}>New here? Create an account</button>
+                <button type="button" className="btn text-light signupLink" onClick={switchToSignup}>New here? Create an account</button>
                 <p>{errLogin}</p>
             </div>
+            <img src={loginBg} className="loginImg"/>
         </div>
     )
     

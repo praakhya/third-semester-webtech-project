@@ -32,7 +32,7 @@ function Grid(props)
                     }
                     var tagBooks = books.books.map((b) => { return <div key={ct}><Book title={b.title} imageLink={b.imageLink} author={b.author} bookClass="gridBook" imgClass="gridBooksImg"/></div> });
                     return (
-                    <div className="grid"> 
+                    <div className="grid bg-secondary"> 
                         {tagBooks}
                     </div>
                     )

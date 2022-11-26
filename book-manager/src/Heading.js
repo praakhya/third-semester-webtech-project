@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import logo from './images/setup/logo.png';
+import logo from './images/setup/logos/logoMiniLight.png';
 import { useState } from "react";
 import './App.css';
 function Heading(props)
@@ -12,11 +12,11 @@ function Heading(props)
         navigate("/profile");
     };
     return (
-        <div className="Heading">
-            <img src={logo} className="openNav" onClick={props.toggleNav}></img>
+        <div className="Heading bg-dark text-light">
+            <img src={logo} className="openNav rounded-circle" onClick={props.toggleNav}></img>
             <h1>Lorem Booksome</h1>
-            <button onClick={navigateToAddbooks}>Add a Book</button>
-            <button onClick={navigateToProfile}>Your Profile</button>
+            <button type="button" className="btn text-light hoverChange" onClick={navigateToAddbooks}>Add a Book</button>
+            <button type="button" className="btn text-light hoverChange" onClick={navigateToProfile}>Your Profile</button>
         </div>
     )
 }

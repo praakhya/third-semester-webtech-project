@@ -3,7 +3,7 @@ import "./App.css";
 const NavLayout = (props) => {
   return (
     <>
-      <div className="nav" onMouseLeave={props.toggleNav}>
+      <div className="nav bg-dark text-light" onMouseLeave={props.toggleNav}>
         <br/>
         <br/>
         <br/>

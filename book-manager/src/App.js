@@ -14,7 +14,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NavLayout from './NavLayout';
 import BookSpotlight from "./BookSpotlight";
 import AddBooks from './AddBooks';
-import Home from "./Home";
+import Profile from "./Profile";
 function App() {
   const [signup, setSignUp] = useState(false);
   const onSignup = () => { setSignUp(signup => true) };
@@ -68,7 +68,7 @@ function App() {
     setNav(navVisible => !navVisible);
   }
   return (
-    <div className='App'>
+    <div className='App .bg-light'>
       <BrowserRouter>
         <Heading toggleNav={toggleNav}/>
         <div className="body">
@@ -80,7 +80,7 @@ function App() {
             <Route path="/main" element={<BookProvider value={topBooks}><Main comps={comps} username={user.username} fullname={user.fullname} /></BookProvider>} />
             <Route path="/spotlight" element={<BookSpotlight></BookSpotlight>} />
             <Route path="/addbooks" element={<AddBooks/>} />
-            <Route path="/profile" element={<Home/>} />
+            <Route path="/profile" element={<Profile/>} />
             <Route path="*" element={<p>404</p>} />
           </Routes>
         </div>

@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import { propTypes } from 'react-bootstrap/esm/Image';
 import { useNavigate } from "react-router-dom";
-
+import "./App.css";
 function Signup(props) {
     var userRef = React.createRef();
     var nameRef = React.createRef();
@@ -56,7 +56,7 @@ function Signup(props) {
         });
     };
     return (
-    <div className="login">
+    <div className="login bg-secondary">
         <h1>Signup</h1>
         <label>Username</label>
         <input type="text" className="form-control" id="usr" ref={userRef}/>

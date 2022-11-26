@@ -14,7 +14,7 @@ function Book(props) {
     var baseUrl = "./";
     if (props.bookClass == "topBook") {
         return (
-            <div className={props.bookClass} onClick={navigateToSpotlight}>
+            <div className="topBook bg-dark text-light" onClick={navigateToSpotlight}>
                 {props.imageLink == undefined ?
                     <img className={props.imgClass} src={require(`${baseUrl + "images/dummy.jpg"}`)} /> :
                     <img className={props.imgClass} src={require(`${baseUrl + props.imageLink}`)} />}
@@ -26,7 +26,7 @@ function Book(props) {
     }
     if (props.bookClass = "gridBook") {
         return (
-            <div className={props.bookClass} onMouseOver={toggleDet} onMouseOut={toggleDet} onClick={navigateToSpotlight}>
+            <div className="gridBook bg-dark text-light" onMouseOver={toggleDet} onMouseOut={toggleDet} onClick={navigateToSpotlight}>
                 {props.imageLink == undefined ?
                     <img className={props.imgClass} src={require(`${baseUrl + "images/dummy.jpg"}`)} /> :
                     <img className={props.imgClass} src={require(`${baseUrl + props.imageLink}`)} />}

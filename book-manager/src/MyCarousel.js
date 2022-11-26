@@ -35,9 +35,10 @@ function MyCarousel() {
                     console.log("MyCarousel: ",books.topBooks);
                     var tagBooks = books.topBooks.map((b) => { return <div key={ct}><Book title={b.title} imageLink={b.imageLink} author={b.author} bookClass="topBook" imgClass="topBooksImg"/></div> });
                     return <Carousel 
-                    containerClass="carousel-container"
+                    containerClass="carousel-container bg-dark text-white"
                     countVisible={3} 
-                    shiftAmount={1}>
+                    shiftAmount={1}
+                    >
                         {tagBooks}
                     </Carousel>
                     }
