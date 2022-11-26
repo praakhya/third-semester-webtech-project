@@ -10,14 +10,12 @@ import Signup from './Signup';
 import Main from './Main';
 import { bookContext, BookConsumer, BookProvider } from './bookContext';
 import loginBg from './images/setup/loginBg.jpg';
-import MyNav from './MyNav';
-
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import NavLayout from './NavLayout';
+import BookSpotlight from "./BookSpotlight";
+import AddBooks from './AddBooks';
+import Home from "./Home";
 function App() {
-
-  const [navVisibility, setVisibility] = useState(false);
-  const toggleNav = () => {
-    setVisibility(navVisibility => !navVisibility);
-  }
   const [signup, setSignUp] = useState(false);
   const onSignup = () => { setSignUp(signup => true) };
   const offSignup = () => { setSignUp(signup => false) };
@@ -63,18 +61,33 @@ function App() {
         console.log(err);
       });
   };
+
+  const [navVisible,setNav] = useState(false)
+  function toggleNav()
+  {
+    setNav(navVisible => !navVisible);
+  }
   return (
-    <div className="App">
-      <Heading username={user.username} fullname={user.fullname} />
-      <img className="openNav" src={logo} onClick={toggleNav}></img>
-      <div className='body'>
-        <div onMouseLeave={toggleNav}>
-          <MyNav topBooks={topBooks} visible = {navVisibility} username={user.username} fullname={user.fullname} comps={comps} toggle={toggleVisibility} onSignup={onSignup} offSignup={offSignup} initUser={initUser}></MyNav>
+    <div className='App'>
+      <BrowserRouter>
+        <Heading toggleNav={toggleNav}/>
+        <div className="body">
+          {navVisible? <NavLayout toggleNav={toggleNav}/>:<span></span>}
+          <Routes className="content">
+            <Route path="/" element={<img className="homePic" src={homeBg}></img>} />
+            <Route path="/login" element={<Login comps={comps} initUser={initUser} toggle={toggleVisibility} onSignup={onSignup} offSignup={offSignup} />} />
+            <Route path="/signup" element={<Signup comps={comps} initUser={initUser} toggle={toggleVisibility} onSignup={onSignup} offSignup={offSignup} />} />
+            <Route path="/main" element={<BookProvider value={topBooks}><Main comps={comps} username={user.username} fullname={user.fullname} /></BookProvider>} />
+            <Route path="/spotlight" element={<BookSpotlight></BookSpotlight>} />
+            <Route path="/addbooks" element={<AddBooks/>} />
+            <Route path="/profile" element={<Home/>} />
+            <Route path="*" element={<p>404</p>} />
+          </Routes>
         </div>
-      </div>
-      
+      </BrowserRouter>
     </div>
   );
+
 }
 
 export default App;

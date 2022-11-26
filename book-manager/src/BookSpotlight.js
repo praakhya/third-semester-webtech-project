@@ -4,7 +4,6 @@ import {
     Comment
 } from './book_dtls';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { propTypes } from 'react-bootstrap/esm/Image';
 function BookSpotlight(props) {
     var location=useLocation();
     function goBack() {

@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 function Book(props) {
     const navigate = useNavigate();
     const navigateToSpotlight = () => {
-        // navigate to /contacts
         navigate('/spotlight',{state: {title:props.title, desc:"None", imageLink: props.imageLink, language:" ", pages:" ", year:" ", author: props.author}});
     };
     console.log("In books prop: ", props);

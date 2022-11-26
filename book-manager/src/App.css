@@ -42,18 +42,23 @@
 .Heading
 {
   background-color: black;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   color:antiquewhite;
-  top: 0px;
-  left: 0px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  position: sticky;
+  padding-top: 5px;
+  padding-bottom: 5px;
   width: 100%;
-  z-index: 4;
 }
 .homePic
 {
   width: 500px;
+}
+.home{
+  background-color: black;
+  width:100vw;
+  height:100vh;
+  display:flex;
 }
 .nav{
   background-color: black;
@@ -64,7 +69,7 @@
   position: fixed;
   top: 0px;
   left: 0px;
-  z-index: 3;
+  z-index: 5;
 }
 .login
 {
@@ -156,11 +161,8 @@
 
 .openNav
 {
-  z-index: 4;
+  z-index: 10;
   height: 10vmin;
-  position: fixed;
-  left:5px;
-  top:5px;
 }
 
 .main
@@ -168,6 +170,7 @@
   width: 100%;
   display: flex;
   justify-content: center;
+  align-content: center;
   flex-direction: column;
 }
 .carousel-container
@@ -199,12 +202,14 @@
   flex-direction: row;
   overflow: visible;
   height: 100%;
+  width: 100%;
 }
 .nav-head{
   padding:10px;
   padding-top: 60px;
   left: 10px;
   top: 10px;
+  z-index: 2;
 }
 
 .grid
@@ -214,4 +219,53 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+}
+
+.child1{
+  border:black; 
+  position:relative;
+  left:260px;
+  top:200px;
+  width:310px;
+  height:500px;
+}
+
+.child1-img{
+   top: 50%;
+  left: 50%;
+  overflow: hidden;
+  border-radius:50%;
+  box-shadow: 0px 0px 25px #fff;
+}
+
+.child1-content{
+  text-align: center;
+  color:white;
+  padding: 1px 1px;
+}
+
+.child2{
+  background-color:rgb(34, 34, 34);
+  border: 1px solid whitesmoke;
+  border-radius: 5%;
+  color:aliceblue;
+  box-shadow: 100px;
+  margin:2px;
+  position: relative;
+  left:350px;
+  top:200px;
+  width:785px;
+  height:500px;
+}
+
+.child2-content{
+  padding:10px;
+}
+.header{
+  color:antiquewhite;
+  position:fixed;
+  font-size:40px;
+  padding:30px 40px;
+  position: left;
+  text-shadow:0px 0px 14px rgb(255, 255, 255);
 }
