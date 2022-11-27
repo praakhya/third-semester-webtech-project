@@ -1,10 +1,12 @@
 const express = require("express");
 const router = express.Router();
 const { addUser, auth } = require("./auth");
-const { getBooks } = require("./load");
+const { getBooks, addBook, putBook, uploadImg } = require("./load");
 const { sendComment } = require("./load");
 router.route("/auth/signup").post(addUser);
 router.route("/auth/login").post(auth);
 router.route("/load/books").get(getBooks);
-router.route("/load/sendcomment").post(getBooks);
+router.route("/load/books").post(addBook);
+router.route("/load/books/:id").put(putBook);
+router.route("/load/books/upload").post(uploadImg);
 module.exports = router;

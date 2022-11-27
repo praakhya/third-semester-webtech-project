@@ -31,7 +31,7 @@ function AddBooks(){
                 </div>
                 <div className="mb-3  ">
                     <label for="exampleFormControlInput1" className="form-label text-white">Image</label>
-                    <input type="text" className="form-control" id="exampleFormControlInput1" placeholder="Enter the URL of the image" />
+                    <input type="file" className="form-control" id="exampleFormControlInput1" placeholder="Enter the URL of the image" />
                 </div>
 
 

@@ -6,6 +6,21 @@ const schema = new mongoDB.Schema({
     author: {
         type: String
     },
+    country: {
+        type: String
+    },
+    language: {
+        type: String
+    },
+    pages: {
+        type:Number
+    },
+    year: {
+        type: String
+    },
+    description: {
+        type: String
+    },
     imageLink: {
         type: String
     },
