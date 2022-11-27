@@ -1,15 +1,12 @@
 import { useState, useContext } from 'react';
 import React from 'react';
-import logo from './images/setup/logo.png';
 import './App.css';
 import Heading from './Heading.js';
-import homeBg from './images/homeBg.png';
 import Login from './Login';
 import Nav from './Nav'
 import Signup from './Signup';
 import Main from './Main';
 import { bookContext, BookConsumer, BookProvider } from './bookContext';
-import loginBg from './images/setup/loginBg.jpg';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NavLayout from './NavLayout';
 import BookSpotlight from "./BookSpotlight";
@@ -74,7 +71,7 @@ function App() {
         <div className="body">
           {navVisible? <NavLayout toggleNav={toggleNav}/>:<span></span>}
           <Routes className="content">
-            <Route path="/" element={<img className="homePic" src={homeBg}></img>} />
+            <Route path="/" element={<img className="homePic" src="/images/homeBg.png"></img>} />
             <Route path="/login" element={<Login comps={comps} initUser={initUser} toggle={toggleVisibility} onSignup={onSignup} offSignup={offSignup} />} />
             <Route path="/signup" element={<Signup comps={comps} initUser={initUser} toggle={toggleVisibility} onSignup={onSignup} offSignup={offSignup} />} />
             <Route path="/main" element={<BookProvider value={topBooks}><Main comps={comps} username={user.username} fullname={user.fullname} /></BookProvider>} />

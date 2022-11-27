@@ -3,7 +3,6 @@ import React from 'react';
 import './App.css'
 import { useBootstrapPrefix } from 'react-bootstrap/esm/ThemeProvider';
 import { useNavigate } from "react-router-dom";
-import loginBg from "./images/setup/loginBg.jpg";
 function Login(props)
 {
     var baseUrl = "/api";
@@ -65,7 +64,7 @@ function Login(props)
                 <button type="button" className="btn text-light signupLink" onClick={switchToSignup}>New here? Create an account</button>
                 <p>{errLogin}</p>
             </div>
-            <img src={loginBg} className="loginImg"/>
+            <img src="/images/setup/loginBg.jpg" className="loginImg"/>
         </div>
     )
     

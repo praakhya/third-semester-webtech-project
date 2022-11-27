@@ -2,7 +2,7 @@ const Book = require("./Book");
 exports.getBooks = async (req,res) => {
     try {
         const books = await Book.find({});
-        console.log("In load: ",books);
+        //console.log("In load: ",books);
         return res.status(200).json(books)
     }
     catch(err) {
@@ -14,15 +14,29 @@ exports.getBooks = async (req,res) => {
 };
 
 exports.addBook = async (req,res) => {
-    const {title, author, country, language, pages, year, description, imageLink, comments} = req.body;
-    console.log("in add book (server): ",title, author, country, language, pages, year, description, imageLink, comments);
+    const url = "images/dummy.jpg";
+    if (req.file!=undefined)
+    {
+        url = "uploads/" + req.file.filename;
+        console.log(req.file.fieldname, req.file.originalname, req.file.filename, req.file.path, req.file.size)
+    }
+    console.log("Final url is ", url)
+    const book = new Book({
+        title:req.body.title,
+        author:req.body.author,
+        country:req.body.country,
+        language:req.body.language,
+        pages:req.body.pages,
+        year:req.body.year,
+        description:req.body.description,
+        imageLink: url,
+        comments:req.body.comments
+    })
     try {
-        
-        console.log("adding: ",title, author);
-        await Book.create({
-            title, author, country, language, pages, year, description, imageLink, comments
-        })
-        this.getBooks(req,res);
+        console.log(book)
+        await Book.create(book)
+        res.writeHead(301, { Location: "/main" });
+        return res.end();
     } 
     catch (err) {
         res.status(409).json({

@@ -1,48 +1,78 @@
 import React from 'react';
-
+import { useRef } from 'react';
 import "./AddBooks.css";
+import { useNavigate } from "react-router-dom";
 function AddBooks(){
+    const formRef = useRef();
+    const navigate = useNavigate();
+    const navigateToMain = () => {
+        // navigate to /contacts
+        navigate('/main');
+    };
+    const addBookNew = (event) => {
+    }
+    const addBook = (event) => {
+        event.preventDefault();
+        console.log("target: ", event.target);
+        var baseUrl = "/api";
+        const formData  = new FormData();
+        let formObject = Object.fromEntries(formData.entries());
+    
+        formData.append(formObject['title'])
+        console.log("formData: ",formObject, formData);
+        fetch(baseUrl+'/load/books', {
+            method:'POST',
+            headers: {
+                'Content-type': 'multipart/form-data'
+            },
+            body: formData
+        })
+        .then((response) =>  {
+            console.log("response: ",response)
+            if (response.status != 200) {
+                throw new Error(response.message);
+            }
+            return response.json();
+        })
+        .then((data) => {
+            navigateToMain();
+            console.log("navigated to main\n");
+        })
+        .catch((err) => {
+            console.log(err);
+        });
+    };
     return (
         <div className='addBooks d-flex justify-content-center align-items-center'>
-            <div className='formBox p-4 d-flex bg-dark flex-column'>
-                <div className="mb-3  ">
-                    <label for="exampleFormControlInput1" className="form-label text-white">Book Name</label>
-                    <input type="text" className="form-control" id="exampleFormControlInput1" placeholder="Enter book name" />
-                </div>
-                <div className="mb-3  ">
-                    <label for="exampleFormControlInput1" className="form-label text-white">Author</label>
-                    <input type="text" className="form-control" id="exampleFormControlInput1" placeholder="Enter author name" />
-                </div>
-                <div className="mb-3  ">
-                    <label for="exampleFormControlInput1" className="form-label text-white">Country</label>
-                    <input type="text" className="form-control" id="exampleFormControlInput1" placeholder="Country" />
-                </div>
-                <div className="mb-3  ">
-                    <label for="exampleFormControlInput1" className="form-label text-white">Language</label>
-                    <input type="text" className="form-control" id="exampleFormControlInput1" placeholder="Enter Language" />
-                </div>
-                <div className="mb-3  ">
-                    <label for="exampleFormControlInput1" className="form-label text-white">Pages</label>
-                    <input type="number" className="form-control" id="exampleFormControlInput1" placeholder="Enter the number of pages" />
-                </div>
-                <div className="mb-3  ">
-                    <label for="exampleFormControlInput1" className="form-label text-white">year</label>
-                    <input type="number" className="form-control" id="exampleFormControlInput1" placeholder="Enter the year" />
-                </div>
-                <div className="mb-3  ">
-                    <label for="exampleFormControlInput1" className="form-label text-white">Image</label>
-                    <input type="file" className="form-control" id="exampleFormControlInput1" placeholder="Enter the URL of the image" />
-                </div>
+            <form action = "/api/load/books" method="POST" className='formBox p-4 d-flex bg-dark flex-column' encType='multipart/form-data' ref={formRef} onSubmit={addBookNew}>
+                <label for="exampleFormControlInput1" className="form-label text-white">Book Name</label>
+                <input type="text" name="title" className="form-control" id="exampleFormControlInput1" placeholder="Enter book name" />
+                <label for="exampleFormControlInput1" className="form-label text-white">Author</label>
+                <input type="text" name="author" className="form-control" id="exampleFormControlInput1" placeholder="Enter author name" />
+                <label for="exampleFormControlInput1" className="form-label text-white">Country</label>
+                <input type="text" name="country" className="form-control" id="exampleFormControlInput1" placeholder="Country" />
+                <label for="exampleFormControlInput1" className="form-label text-white">Language</label>
+                <input type="text" name="language" className="form-control" id="exampleFormControlInput1" placeholder="Enter Language" />
+                <label for="exampleFormControlInput1" className="form-label text-white">Pages</label>
+                <input type="number" name="pages" className="form-control" id="exampleFormControlInput1" placeholder="Enter the number of pages" />
+                <label for="exampleFormControlInput1" className="form-label text-white">year</label>
+                <input type="number" name="year" className="form-control" id="exampleFormControlInput1" placeholder="Enter the year" />
+                <label for="exampleFormControlInput1" className="form-label text-white">Image</label>
+                <input type="file" name="cover" className="form-control" id="exampleFormControlInput1" placeholder="Enter the URL of the image" />
+                <label for="exampleFormControlTextarea1" className="form-label text-white">Description</label>
+                <textarea name="description" className="form-control" id="exampleFormControlTextarea1" placeholder="Description" rows="3"></textarea>
+                <button type="submit" className='btn bg-info'>Submit</button>
 
 
-                <div className="mb-3">
-                    <label for="exampleFormControlTextarea1" className="form-label text-white">Description</label>
-                    <textarea className="form-control" id="exampleFormControlTextarea1" placeholder="Description" rows="3"></textarea>
-                </div>
-                <button className='btn bg-info'>Submit</button>
-            </div>
+                
+            </form>
         </div>
     )
 }
 
 export default AddBooks
+/*
+                
+                
+
+*/

@@ -16,8 +16,8 @@ function Book(props) {
         return (
             <div className="topBook bg-dark text-light" onClick={navigateToSpotlight}>
                 {props.imageLink == undefined ?
-                    <img className={props.imgClass} src={require(`${baseUrl + "images/dummy.jpg"}`)} /> :
-                    <img className={props.imgClass} src={require(`${baseUrl + props.imageLink}`)} />}
+                    <img className={props.imgClass} src="images/dummy.jpg"/> :
+                    <img className={props.imgClass} src={props.imageLink} />}
 
                 <p width="200px">{props.title}</p>
                 <p width="200px">{props.author}</p>
@@ -28,8 +28,8 @@ function Book(props) {
         return (
             <div className="gridBook bg-dark text-light" onMouseOver={toggleDet} onMouseOut={toggleDet} onClick={navigateToSpotlight}>
                 {props.imageLink == undefined ?
-                    <img className={props.imgClass} src={require(`${baseUrl + "images/dummy.jpg"}`)} /> :
-                    <img className={props.imgClass} src={require(`${baseUrl + props.imageLink}`)} />}
+                    <img className={props.imgClass} src="images/dummy.jpg" /> :
+                    <img className={props.imgClass} src={props.imageLink} />}
                 <div>
                     {detVis ? <p width="200px">{props.title}</p> : <span></span>}
                     {detVis ? <p width="200px">{props.author}</p> : <span></span>}
