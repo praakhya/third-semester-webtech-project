@@ -48,6 +48,16 @@
   align-items: center;
   position: relative;
 }
+.signup
+{
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  flex-direction: column;
+}
 .loginImg{
   z-index: 2;
   width: 100%;

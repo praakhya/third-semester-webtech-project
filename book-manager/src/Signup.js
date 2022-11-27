@@ -56,7 +56,7 @@ function Signup(props) {
         });
     };
     return (
-    <div className="login bg-secondary">
+    <div className="signup bg-secondary">
         <h1>Signup</h1>
         <label>Username</label>
         <input type="text" className="form-control" id="usr" ref={userRef}/>

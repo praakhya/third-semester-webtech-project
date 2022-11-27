@@ -26,8 +26,6 @@ function Nav(props)
             <br/>
             <button type="button" className="btn text-light hoverChange" onClick = {handleHome}>Home</button>
             <button type="button" className="btn text-light hoverChange" onClick = {handleLogin}>{loggedIn?"Logout":"Login"}</button>
-            <button type="button" className="btn text-light hoverChange">About</button>
-            <button type="button" className="btn text-light hoverChange">Contact</button>
             <button type="button" className="btn text-light hoverChange" onClick={handleMain}>View Books</button>
         </div>
     )
