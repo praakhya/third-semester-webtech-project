@@ -18,7 +18,6 @@ function Login(props)
         navigate('/main');
     };
     const { user, setUser } = useContext(userContext);
-
     return <UserConsumer>
     {   
         (userLog)=> {
@@ -44,7 +43,7 @@ function Login(props)
                 return response.json();
             })
             .then((data) => {
-                userLog.user = data
+                userLog.user = data;
                 console.log("Logged in Data", user)
                 navigateToMain();
             })
@@ -55,8 +54,21 @@ function Login(props)
         const switchToSignup = () => {
             navigate('/signup');
         }
-
+        const logout=()=>{
+            userLog.user = null;
+            navigateToMain()
+        }    
         return (
+            (!userLog.token&&userLog.user!=null)?
+            <div className="login">
+                <br/>
+                <br/>
+                <div className="loginBox bg-secondary">
+                    <h1>Already Logged In</h1>
+                    <button type="button" className="btn text-light signupLink" onClick={logout}>Log Out</button>
+                </div>
+                <img src="/images/setup/loginBg.jpg" className="loginImg"/>
+            </div>:
             <div className="login">
                 <br/>
                 <br/>
