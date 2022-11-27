@@ -22,11 +22,12 @@ const upload = multer({ storage : storage })
 
 
 const router = express.Router();
-const { addUser, auth } = require("./auth");
+const { addUser, auth, modifyUser } = require("./auth");
 const { getBooks, addBook, putBook, uploadImg } = require("./load");
 const { sendComment } = require("./load");
 router.route("/auth/signup").post(addUser);
 router.route("/auth/login").post(auth);
+router.route("/auth/login").put(modifyUser);
 router.route("/load/books").get(getBooks);
 router.route("/load/books").post(upload.single("cover"), addBook);
 router.route("/load/books/:id").put(putBook);

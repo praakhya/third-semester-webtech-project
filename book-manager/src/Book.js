@@ -6,7 +6,7 @@ function Book(props) {
     const navigateToSpotlight = () => {
         navigate('/spotlight',{state: {title:props.title, desc:"None", imageLink: props.imageLink, language:" ", pages:" ", year:" ", author: props.author}});
     };
-    console.log("In books prop: ", props);
+    //console.log("In books prop: ", props);
     const [detVis, showDet] = useState(false);
     function toggleDet() {
         showDet(detVis => !detVis);

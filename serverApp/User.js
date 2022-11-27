@@ -8,6 +8,9 @@ const schema = new mongoDB.Schema({
     },
     fullname: {
         type: String
+    },
+    token: {
+        type: String
     }
 })
 const User = mongoDB.model("User", schema, "Users");

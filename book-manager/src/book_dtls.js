@@ -9,7 +9,7 @@ class Book_dtls extends Component {
             <div>
                 <h1>{this.props.title}</h1>
                 <div className='first'>
-                    <img className='image' src={require(`${baseUrl+this.props.imageLink}`)}></img>
+                    <img className='image' src={this.props.imageLink}></img>
                     <div className='indes'>
                         <h1>{this.props.title}</h1>
                         <h2>Book Details</h2>

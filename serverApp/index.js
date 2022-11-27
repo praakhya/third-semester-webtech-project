@@ -3,6 +3,16 @@ const path = require("path");
 const app = express();
 var bodyParser = require('body-parser');
 
+app.use((req, res, next) => {
+  console.log("url", req.url, req.method, req.get('accept'))
+  /*if (req.url=="/api/load/books" && req.method=="POST")
+  {
+    var header = req.headers;
+    if (header.
+  }*/
+  next()
+})
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 // in latest body-parser use like below.

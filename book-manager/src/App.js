@@ -7,6 +7,7 @@ import Nav from './Nav'
 import Signup from './Signup';
 import Main from './Main';
 import { bookContext, BookConsumer, BookProvider } from './bookContext';
+import { userContext, UserConsumer, UserProvider } from './userContext';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NavLayout from './NavLayout';
 import BookSpotlight from "./BookSpotlight";
@@ -31,7 +32,8 @@ function App() {
     }
   }
   var topBooks = [];
-  
+  var userLog = null;
+
 
   const getBooks = () => {
     console.log("in get books");
@@ -59,30 +61,38 @@ function App() {
       });
   };
 
-  const [navVisible,setNav] = useState(false)
-  function toggleNav()
-  {
+  const [navVisible, setNav] = useState(false)
+  function toggleNav() {
     setNav(navVisible => !navVisible);
   }
   return (
     <div className='App .bg-light'>
-      <BrowserRouter>
-        <Heading toggleNav={toggleNav}/>
-        <div className="body">
-          {navVisible? <NavLayout toggleNav={toggleNav}/>:<span></span>}
-          <Routes className="content">
-            <Route path="/" element={<img className="homePic" src="/images/homeBg.png"></img>} />
-            <Route path="/login" element={<Login comps={comps} initUser={initUser} toggle={toggleVisibility} onSignup={onSignup} offSignup={offSignup} />} />
-            <Route path="/signup" element={<Signup comps={comps} initUser={initUser} toggle={toggleVisibility} onSignup={onSignup} offSignup={offSignup} />} />
-            <Route path="/main" element={<BookProvider value={topBooks}><Main comps={comps} username={user.username} fullname={user.fullname} /></BookProvider>} />
-            <Route path="/spotlight" element={<BookSpotlight></BookSpotlight>} />
-            <Route path="/addbooks" element={<AddBooks/>} />
-            <Route path="/profile" element={<Profile/>} />
-            <Route path="*" element={<p>404</p>} />
-          </Routes>
-        </div>
-      </BrowserRouter>
+      <UserProvider value={{
+      user,
+      setUser
+    }}>
+        <BrowserRouter>
+          <Heading toggleNav={toggleNav} />
+          <div className="body">
+            {navVisible ? <NavLayout toggleNav={toggleNav} /> : <span></span>}
+
+
+            <Routes className="content">
+              <Route path="/" element={<img className="homePic" src="/images/homeBg.png"></img>} />
+              <Route path="/login" element={<Login comps={comps} initUser={initUser} toggle={toggleVisibility} onSignup={onSignup} offSignup={offSignup} />} />
+              <Route path="/signup" element={<Signup comps={comps} initUser={initUser} toggle={toggleVisibility} onSignup={onSignup} offSignup={offSignup} />} />
+              <Route path="/main" element={<BookProvider value={topBooks}><Main comps={comps} username={user.username} fullname={user.fullname} /></BookProvider>} />
+              <Route path="/spotlight" element={<BookSpotlight></BookSpotlight>} />
+              <Route path="/addbooks" element={<AddBooks/>} />
+              <Route path="/profile" element={<Profile />} />
+              <Route path="*" element={<p>404</p>} />
+            </Routes>
+          </div>
+        </BrowserRouter>
+      </UserProvider>
+
     </div>
+
   );
 
 }
